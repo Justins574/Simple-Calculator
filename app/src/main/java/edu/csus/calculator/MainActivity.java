@@ -312,7 +312,7 @@ public class MainActivity extends AppCompatActivity {
 
                 top = convert(postfix);                   // convert postfix to infix
 
-                int sol = evaluate(top.leaf);
+                double sol = evaluate(top.leaf);
 
                 resultTextView.setText(sol+"");
             }
@@ -374,13 +374,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    static int evaluate(TN leaf){
+    static double evaluate(TN leaf){
         String str = leaf.data;
-        int c = 0;
+        double c = 0;
 
         if(str.compareTo("+") == 0 || str.compareTo("-") == 0 || str.compareTo("*") == 0 || str.compareTo("/") == 0 ){
-            int a = 0;
-            int b = 0;
+            double a = 0;
+            double b = 0;
 
             if (leaf.left != null){
                 a = evaluate(leaf.left);
@@ -415,7 +415,7 @@ public class MainActivity extends AppCompatActivity {
         }//if
 
         else{
-            c = Integer.parseInt(str);
+            c = Double.parseDouble(str);
         }
 
 

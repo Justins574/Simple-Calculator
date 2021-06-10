@@ -17,8 +17,9 @@
             android:layout_height="wrap_content"
             android:ems="15"
             android:hint="Enter Expression"
-            android:inputType="textPersonName"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:inputType="none"
+            android:textIsSelectable="true"/>
 
         <TextView
             android:id="@+id/resultTextView"
