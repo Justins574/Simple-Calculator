@@ -19,7 +19,187 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        Button openButton = (Button) findViewById(R.id.openPar);
+        Button closeButton = (Button) findViewById(R.id.closePar);
+        Button backspaceButton = (Button) findViewById(R.id.backspace);
+        Button divideButton = (Button) findViewById(R.id.divide);
+
+        Button sevenButton = (Button) findViewById(R.id.seven);
+        Button eightButton = (Button) findViewById(R.id.eight);
+        Button nineButton = (Button) findViewById(R.id.nine);
+        Button multiplyButton = (Button) findViewById(R.id.multiply);
+
+        Button fourButton = (Button) findViewById(R.id.four);
+        Button fiveButton = (Button) findViewById(R.id.five);
+        Button sixButton = (Button) findViewById(R.id.six);
+        Button subtractButton = (Button) findViewById(R.id.subtract);
+
+        Button oneButton = (Button) findViewById(R.id.one);
+        Button twoButton = (Button) findViewById(R.id.two);
+        Button threeButton = (Button) findViewById(R.id.three);
+        Button addButton = (Button) findViewById(R.id.add);
+
+        Button clearButton = (Button) findViewById(R.id.clear);
+        Button zeroButton = (Button) findViewById(R.id.zero);
+        Button decimalButton = (Button) findViewById(R.id.decimal);
         Button solveButton = (Button) findViewById(R.id.solveButton);
+
+
+        zeroButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + "0");
+            }
+        });
+
+        oneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + "1");
+            }
+        });
+
+        twoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + "2");
+            }
+        });
+
+        threeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + "3");
+            }
+        });
+
+        fourButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + "4");
+            }
+        });
+
+        fiveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + "5");
+            }
+        });
+
+        sixButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + "6");
+            }
+        });
+
+        sevenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + "7");
+            }
+        });
+
+        eightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + "8");
+            }
+        });
+
+        nineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + "9");
+            }
+        });
+
+        openButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + "(");
+            }
+        });
+
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + ")");
+            }
+        });
+
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText("");
+            }
+        });
+
+        backspaceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                int length = inputEditText.getText().length();
+                if (length > 0) {
+                    inputEditText.getText().delete(length - 1, length);
+                }
+            }
+        });
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + "+");
+            }
+        });
+
+        subtractButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + "-");
+            }
+        });
+
+        multiplyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + "*");
+            }
+        });
+
+        divideButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + "/");
+            }
+        });
+
+        decimalButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                inputEditText.setText(inputEditText.getText() + ".");
+            }
+        });
+
         solveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
