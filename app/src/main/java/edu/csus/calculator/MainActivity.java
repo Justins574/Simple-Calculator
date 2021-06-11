@@ -332,12 +332,14 @@ public class MainActivity extends AppCompatActivity {
 
                 //error handle (add now)
                 if (inputError == true){
+                    resultTextView.setText("Inavlid Input");
                     return;
                 }
 
                 double sol = evaluate(top.leaf);
 
                 if (inputError == true){
+                    resultTextView.setText("Inavlid Input");
                     return;
                 }
 
