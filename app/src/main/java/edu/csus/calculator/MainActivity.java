@@ -13,6 +13,8 @@ import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
 
+    static boolean inputError = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -206,11 +208,21 @@ public class MainActivity extends AppCompatActivity {
                 EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
                 TextView resultTextView = (TextView)findViewById(R.id.resultTextView);
 
+                inputError = false;
+
                 String infix = inputEditText.getText().toString();
                 infix = infix.replaceAll("\\s", "");
 
                 //insert code from jGrasp (String postfix)
                 char[] a = infix.toCharArray();                      // input string is stored into char array
+
+                if (a.length == 0){                                  // if string is empty, can't compute
+                    inputError = true;
+                }
+
+                if(!infix.matches(".*\\d.*")){
+                    inputError = true;
+                }
 
                 String postfix = "";
                 QNode head = null;    // stack head
@@ -248,6 +260,12 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     else if(a[i] == ')'){
+
+                        if(head == null){
+                            inputError = true;
+                            break;
+                        }
+
                         char j = head.data;
                         head = pop(head);
 
@@ -312,7 +330,16 @@ public class MainActivity extends AppCompatActivity {
 
                 top = convert(postfix);                   // convert postfix to infix
 
+                //error handle (add now)
+                if (inputError == true){
+                    return;
+                }
+
                 double sol = evaluate(top.leaf);
+
+                if (inputError == true){
+                    return;
+                }
 
                 resultTextView.setText(sol+"");
             }
@@ -332,8 +359,19 @@ public class MainActivity extends AppCompatActivity {
             str = input.next();
 
             if (str.compareTo("+") == 0 || str.compareTo("-") == 0 || str.compareTo("*") == 0 || str.compareTo("/") == 0 ){
+
+                //System.out.println(top.leaf.data);
+                if(top == null){
+                    inputError = true;
+                    return top;
+                }
                 TN T1 = top.leaf;
                 top = pop(top);
+
+                if(top == null){
+                    inputError = true;
+                    return top;
+                }
                 TN T2 = top.leaf;
                 top = pop(top);
 
@@ -415,7 +453,12 @@ public class MainActivity extends AppCompatActivity {
         }//if
 
         else{
-            c = Double.parseDouble(str);
+            try {
+                c = Double.parseDouble(str);
+            }catch (Exception e) {
+                inputError = true;
+                return 0;
+            }
         }
 
 
