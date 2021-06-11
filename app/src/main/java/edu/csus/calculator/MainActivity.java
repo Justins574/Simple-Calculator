@@ -220,9 +220,27 @@ public class MainActivity extends AppCompatActivity {
                     inputError = true;
                 }
 
-                if(!infix.matches(".*\\d.*")){
+                if(!infix.matches(".*\\d.*")){                  // if string does not contain a number
                     inputError = true;
                 }
+
+                // Handle "(9)6", "(9)6-", "(9)6-8", "7(9)-"
+                for (int i = 0; i < a.length; i++){
+
+                    if(a[i] == '(' && i != 0){
+                        if (Character.isDigit(a[i-1])){
+                            inputError = true;
+                        }
+                    }
+                    if(a[i] == ')' && i != a.length - 1){
+                        if (Character.isDigit(a[i+1])){
+                            inputError = true;
+                        }
+                    }
+
+                }
+
+
 
                 String postfix = "";
                 QNode head = null;    // stack head
@@ -325,6 +343,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 //resultTextView.setText(postfix);
+                System.out.println(postfix);
 
                 Node top;
 
@@ -344,6 +363,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 resultTextView.setText(sol+"");
+                System.out.println(sol);
             }
         });
     }
@@ -456,6 +476,7 @@ public class MainActivity extends AppCompatActivity {
 
         else{
             try {
+                System.out.println("str = " + str);
                 c = Double.parseDouble(str);
             }catch (Exception e) {
                 inputError = true;
