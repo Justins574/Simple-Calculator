@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        Button resultTextView = (Button) findViewById(R.id.resultTextView);
+
         Button openButton = (Button) findViewById(R.id.openPar);
         Button closeButton = (Button) findViewById(R.id.closePar);
         Button backspaceButton = (Button) findViewById(R.id.backspace);
@@ -46,6 +48,20 @@ public class MainActivity extends AppCompatActivity {
         Button decimalButton = (Button) findViewById(R.id.decimal);
         Button solveButton = (Button) findViewById(R.id.solveButton);
 
+
+        resultTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText inputEditText =(EditText)findViewById(R.id.inputEditText);
+                TextView resultTextView = (TextView)findViewById(R.id.resultTextView);
+
+                String text = resultTextView.getText().toString();
+                inputEditText.setText(text);
+
+                resultTextView.setText("");
+
+            }
+        });
 
         zeroButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -351,14 +367,14 @@ public class MainActivity extends AppCompatActivity {
 
                 //error handle (add now)
                 if (inputError == true){
-                    resultTextView.setText("Inavlid Input");
+                    resultTextView.setText("Invalid Input");
                     return;
                 }
 
                 double sol = evaluate(top.leaf);
 
                 if (inputError == true){
-                    resultTextView.setText("Inavlid Input");
+                    resultTextView.setText("Invalid Input");
                     return;
                 }
 
