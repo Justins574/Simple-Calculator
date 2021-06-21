@@ -21,14 +21,17 @@
             android:inputType="none"
             android:textIsSelectable="true"/>
 
-        <TextView
+        <Button
             android:id="@+id/resultTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/inputEditText"
             android:layout_alignParentEnd="true"
             android:text="Solution"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:background="#FAFAFA"
+            android:textColor="#575757"
+            style="?android:attr/borderlessButtonStyle"/>
 
 
     </RelativeLayout>
@@ -60,6 +63,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="CE"
+            android:backgroundTint="#cfb8c8"
             android:textSize="40sp" />
 
         <Button
@@ -68,6 +72,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="÷"
+            android:backgroundTint="#b8bacf"
             android:textSize="40sp" />
 
     </LinearLayout>
@@ -107,6 +112,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="×"
+            android:backgroundTint="#b8bacf"
             android:textSize="40sp" />
 
     </LinearLayout>
@@ -146,6 +152,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="-"
+            android:backgroundTint="#b8bacf"
             android:textSize="40sp" />
 
     </LinearLayout>
@@ -185,6 +192,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="+"
+            android:backgroundTint="#b8bacf"
             android:textSize="40sp" />
 
     </LinearLayout>
@@ -200,6 +208,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="C"
+            android:backgroundTint="#cfb8c8"
             android:textColor="@color/colorAccent"
             android:textSize="40sp" />
 
@@ -225,6 +234,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="="
+            android:backgroundTint="#333763"
+            android:textColor="#ffffff"
             android:textSize="40sp" />
 
     </LinearLayout>
